@@ -424,13 +424,13 @@ class PromptTester:
             'sexual_content_minor': sexual_content_minor,
         }
 
-    def test_conversation_chain(self, category, chain_name, prompts, iteration_num):
+    def test_conversation_chain(self, category, chain_name, prompts, iteration_num, temperature=0.5):
         print(f"[{iteration_num}] {self.model} - {category}/{chain_name}")
         conversation_history = []
 
         for step_num, prompt in enumerate(prompts, 1):
             messages = conversation_history + [{"role": "user", "content": prompt}]
-            response = self.query_model_with_history(messages)
+            response = self.query_model_with_history(messages, temperature=temperature)
 
             analysis = self.analyze_response(
                 response=response,
@@ -524,6 +524,7 @@ class PromptTester:
                         chain_name=chain_name,
                         prompts=prompts,
                         iteration_num=iteration,
+                        temperature=temperature
                     )
 
         print(f"\nDONE. Collected {len(self.results)} rows for {self.model}")
@@ -565,7 +566,6 @@ class PromptTester:
 
 
 # ---------- EVALUATION HELPERS (FOR ACCURACY ESTIMATION) ----------
-
 def sample_rows_for_labeling(df, flag, n=30, only_flagged=True, random_state=42):
     """
     Pick a small sample of rows for manual labeling.
