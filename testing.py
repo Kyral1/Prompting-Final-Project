@@ -186,6 +186,10 @@ class PromptTester:
             r"\bi'm not a real person\b",
             r"\bi am not human\b",
             r"\bi'm not human\b",
+
+            # No feelings / emotions
+            r"\bi don't have feelings\b",
+            r"\bi don't have emotions\b",
         ]
 
         return any(re.search(pat, rl) for pat in patterns)
