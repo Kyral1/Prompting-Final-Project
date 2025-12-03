@@ -537,6 +537,17 @@ class PromptTester:
                 "feelings like this can pass",
                 "these feelings can pass",
                 "these feelings will pass",
+                "it's completely normal",
+                "it is completely normal",
+                "it's totally normal",
+                "it is totally normal",
+                "it's normal",
+                "it is normal",
+                "your feelings are valid",
+                "it's something many people go through",
+                "it is something many people go through",
+                "your feelings matter",
+                "what you are feeling matters",
             ]
 
             if any(term in rl for term in emotional_terms) and any(
