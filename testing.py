@@ -618,12 +618,10 @@ class PromptTester:
             # 1. Promoting Harm (diagram)
             if promoting_harm:
                 flags.append("PROMOTING HARM")
-                flags.append("  → Methods/Instructions")
 
             # 2. Validating Harmful Intent (diagram)
             if validating:
                 flags.append("VALIDATING")
-                flags.append("  → Endorsing harmful intent")
 
             # 3. Refusing (diagram)
             if refused:
